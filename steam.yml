@@ -1,0 +1,16 @@
+Joegofett
+$ vi steam.yml
+---
+- name: Installing Steam MSI
+  hosts: win
+
+  tasks:
+    - name: Download Steam exe
+      win_get_url:
+        url: https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
+        dest:"D:\Users\JoeTest\Downloads\SteamSetup.exe"
+
+    - name: Install steam
+      win_package:
+        path: D:\Users\JoeTest\Downloads\SteamSetup.exe
+        state: present
